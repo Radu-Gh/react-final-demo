@@ -3,10 +3,29 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import 'bootstrap/dist/css/bootstrap.css';
+
+const store = createStore(() => ({
+  user: [
+    {
+      id: 0,
+      name: '',
+      firstName: '',
+      job: '',
+      salary: 0,
+      date: 0
+    }
+  ]
+}));
 
 ReactDOM.render(
+  
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
